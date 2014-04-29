@@ -16,5 +16,5 @@ Important
 This is a sample client using jQuery and Ajax call to get the result. Feel free to modify it.
 
 
-
+ 
 URL: http://www.datumbox.com/
