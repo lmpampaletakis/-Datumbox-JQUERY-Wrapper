@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="js/jquery-1.9.1.js"></script>  
+
+<script type="text/javascript">
+/*Add parameters for api*/
+var URL = " ";
+var API_KEY = " ";
+var SUBSCRIPTION_ID = "";
+
+$(document).ready(function(){
+
+var checkTextArea =null;
+//Initialize button to disable
+$('.btn').attr('disable', true);
+
+//Check if pasted - right click
+$("textarea#text").bind({ 
+		paste : function(){
+			checkTextArea = "detected paste";
+			$('.btn').attr('enable', true);
+			}
+	});
+
+//When you click the button, some checks are taking place and the hit the datumbox API
+  $( "#button" ).click(function() { 
+		var html = $( "textarea#text" ).val();
+		if($.trim(html)!='' && html!=undefined && (checkTextArea!=null && (checkTextArea==="detected paste") || checkTextArea==undefined)) { 
+		showResult(html);
+		} else {
+		console.log('Please enter text...');
+		} 
+	});
+}); 
+
+/*Ajax call to datumbox*/
+function showResult(html) {
+
+	$.ajax({
+	type: "POST",
+	url: URL,
+	data:  { api_key: API_KEY, text : html, subscription_id: SUBSCRIPTION_ID},
+	dataType: "json",
+	success: function(data){ 
+	console.log(data.output.result);
+            $('#result').html(data.output.result); 
+         },
+	error: function (xhr, ajaxOptions, thrownError) {
+			console.log(xhr.statusText);
+			 $('#result').html(+ xhr.statusText);
+      }		 
+	});
+}
+</script> 
+</head>
+
+<body>
+
+<div class ="wrapper">
+<div class ="container">
+<h1>Datumbox API client</h1>
+<div class ="content"> 
+			<textarea class="textbox1" id="text" placeholder="What's on your mind?"></textarea>
+			<textarea readonly id="result" class="textbox2" placeholder="Result..."></textarea> 
+</div> 
+</div>
+<button class ="btn" id= "button" type="button">Click Me!</button>
+</div>
+</body>
+</html>
