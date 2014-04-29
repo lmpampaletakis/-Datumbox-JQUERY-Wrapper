@@ -6,9 +6,8 @@
 
 <script type="text/javascript">
 /*Add parameters for api*/
-var URL = " ";
-var API_KEY = " ";
-var SUBSCRIPTION_ID = "";
+var URL = "http://api.datumbox.com/1.0/TwitterSentimentAnalysis.json";
+var API_KEY = ""; 
 
 $(document).ready(function(){
 
@@ -41,7 +40,7 @@ function showResult(html) {
 	$.ajax({
 	type: "POST",
 	url: URL,
-	data:  { api_key: API_KEY, text : html, subscription_id: SUBSCRIPTION_ID},
+	data:  { api_key: API_KEY, text : html},
 	dataType: "json",
 	success: function(data){ 
 	console.log(data.output.result);

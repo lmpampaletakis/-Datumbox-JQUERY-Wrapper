@@ -7,9 +7,7 @@ Instructions
 ---------------
 
 1) There is no need for server. You just open the datumBox.html file and start to play with the API.
-2) You should put your API_KEY, the URL you desire and fianlly the SUBSCRIPTION_ID if available. All 
-these fancy stuff could be found here (http://www.datumbox.com/)
-3) If you have no SUBSCRIPTION_ID you should remove it from the fanction "showResult" (line 44).
+2) You should put your API_KEY, the URL you desire and fianlly. All these fancy stuff could be found here (http://www.datumbox.com/) 
 
 Important
 -------------------------------------
