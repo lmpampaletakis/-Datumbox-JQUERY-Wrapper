@@ -18,3 +18,5 @@ This is a sample client using jQuery and Ajax call to get the result. Feel free 
 
  
 URL: http://www.datumbox.com/
+
+e-mail:lmpampaletakis@gmail.com
